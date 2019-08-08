@@ -1,14 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const redis = require('redis');
 
 const app = express();
 
 const server = require('http').Server(app);
 
-//client.on('connect', function () {
-//    console.log('Redis client connected');
-//});
+// client.on('connect', function () {
+//     console.log('Redis client connected');
+// });
 
 //client.on('error', function (err) {
 //    console.log('Something went wrong ' + err);

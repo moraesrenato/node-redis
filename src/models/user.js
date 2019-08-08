@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//const paginate = require('mongoose-paginate');
+const paginate = require('mongoose-paginate');
 
 const User = new mongoose.Schema(
     {
@@ -14,6 +14,6 @@ const User = new mongoose.Schema(
     }
 );
 
-//User.plugin(paginate);
+User.plugin(paginate);
 
 module.exports = mongoose.model('User', User);
