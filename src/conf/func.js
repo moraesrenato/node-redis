@@ -40,7 +40,9 @@ module.exports = {
         if (user === null) {
             var newUser = {
                 name: req.params.name,
-                rate: req.body.rate
+                rate: req.body.rate,
+                lastname: req.body.lastname,
+                age: req.body.age
             }
 
             user = await User.create(newUser);
@@ -67,7 +69,24 @@ module.exports = {
     async listaUser(req, res) {
         const { page = 1 } = req.query;
         const user = await User.paginate({}, { page, limit: 10 });
-
+        //console.log(user.docs[0].name);
         return res.json(user);
-    }
+    },
+
+    async userFilter(req, res) {
+        const user = await User.find();
+        let filterArray = [];
+
+        if (req.body.age == null || isNaN(req.body.age)) {
+            return res.json('digite uma idade em Number')
+        } else {
+            user.forEach(user => {
+                if (req.body.age == user.age) {
+                    filterArray.push(user);
+                }
+            })
+        }
+
+        return res.json(filterArray);
+    },
 };

@@ -17,4 +17,8 @@ module.exports = {
     async consultaCache(req, res) {
         func.consultaCache(req, res);
     },
+
+    async userFilter(req, res) {
+        func.userFilter(req, res);
+    }
 }

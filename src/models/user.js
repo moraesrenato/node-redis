@@ -11,6 +11,14 @@ const User = new mongoose.Schema(
             type: Number,
             required: true,
         },
+        lastname: {
+            type: String,
+            required: true,
+        },
+        age: {
+            type: Number,
+            required: true,
+        },
     }
 );
 
